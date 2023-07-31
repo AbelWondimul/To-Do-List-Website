@@ -24,12 +24,13 @@ To run the To-Do List Website locally on your machine, follow these steps:
 ### Installation
 
 1. Clone this repository to your local machine using:
+   
    git clone https://github.com/AbelWondimul/To-Do-List-Website.git
 
 2. Change into the project directory:
    cd todo-list-website
    
-4. Install the required dependencies:
+3. Install the required dependencies:
    npm install
 
 ### Usage
