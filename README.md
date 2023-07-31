@@ -1,7 +1,8 @@
 # To-Do List Website
 
-![To-Do List Website]
+
 <img src="./img/to-dofirst.png">
+
 <img src="./img/to-dosecond.png">
 
 Welcome to the To-Do List Website repository! This is a simple web application built using Node.js, JavaScript, EJS, CSS, and HTML, designed to help you organize and manage your tasks effectively. The app allows you to create, edit, and mark tasks as completed, helping you stay on top of your daily responsibilities.
