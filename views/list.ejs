@@ -1,0 +1,32 @@
+<%- include("header") -%>
+    <div class="box" id = "heading">
+   <h1><%= list%></h1> 
+   
+    </div>
+    
+    <div class="box">
+        <h1 style = "color:black">To do list</h1>
+            <% for(var i = 0; i < item.length; i++) {%>
+            <div class="item">
+                <input type = "checkbox">
+                <p><%= item[i]%></p>
+            </div>
+            <% } %>
+           
+        <form class ="item" action="/" method="post">
+        <input type= "text" name="newItem" placeholder="New Item" autocomplete="off">
+        <button type="submit" class="button" name="button" value=<%= list%>>+</button>
+        </form>
+    <%if(req.path === "/work"){%>
+        <form  action="/" method="get">
+            <button class="box1" type="submit" >To do List</button>
+        </form>
+    <%} else {%>
+       <form  action="/work" method="get">
+            <button class="box1" type="submit" >Work List</button>
+        </form>
+    <%}%>
+    </div>
+<%- include("footer") -%>
+   
+ 
