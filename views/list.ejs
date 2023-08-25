@@ -5,25 +5,33 @@
     </div>
     
     <div class="box">
-        <h1 style = "color:black">To do list</h1>
-            <% for(var i = 0; i < item.length; i++) {%>
-            <div class="item">
-                <input type = "checkbox">
-                <p><%= item[i]%></p>
-            </div>
-            <% } %>
+        <%if(req.path === "/work"){%>
+            <h1 style = "color:black">To buy list</h1>
+        <%} else {%>
+            <h1 style = "color:black">To do list</h1>
+        <%}%>  
+        
+            <% item.forEach((item) => {%>
+                <form action="/delete" method="post">                
+                    <div class="item">
+                        <input type = "checkbox" onChange="this.form.submit()" name="checkBox" value="<%= item._id %>">
+                        <p><%= item.name %></p>
+                    </div>
+                    <input type="hidden" name="listName" value="<%= list %>"> </input>
+                </form>
+            <% }) %>
            
         <form class ="item" action="/" method="post">
         <input type= "text" name="newItem" placeholder="New Item" autocomplete="off">
-        <button type="submit" class="button" name="button" value=<%= list%>>+</button>
+        <button type="submit" class="button" name="button" value="<%= list%>">+</button>
         </form>
     <%if(req.path === "/work"){%>
-        <form  action="/" method="get">
+        <form class="item" action="/" method="get">
             <button class="box1" type="submit" >To do List</button>
         </form>
     <%} else {%>
-       <form  action="/work" method="get">
-            <button class="box1" type="submit" >Work List</button>
+       <form class="item" action="/work" method="get">
+            <button class="box1" type="submit" >Grocery List</button>
         </form>
     <%}%>
     </div>
