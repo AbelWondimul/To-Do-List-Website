@@ -13,8 +13,6 @@ app.set('view engine', 'ejs');
 const db_url = process.env.DB_URL;
 
 mongoose.connect(db_url ,{useNewUrlParser:true});
-const items = [];
-const workList = [];
 
 const itemSchema =({
     name: String
@@ -46,7 +44,6 @@ app.get("/", (req, res) => {
     Item.find().then((foundItems, err)=>{
         if(foundItems.length === 0){
             Item.insertMany(defaultItems).then((err)=>{
-                console.log("Inserted successfully");
                 res.redirect('/');
             }).catch((err)=>{
                 console.log(err);
@@ -68,12 +65,7 @@ app.post("/",(req,res) =>{
     const itemName = req.body.newItem;
     const listName = req.body.button;
 
-    
-    
-    if(req.body.button === "Work"){
-        workList.push(itemName);
-        res.redirect("/work");
-    } else{
+
         const item = new Item({
             name:itemName
         });
@@ -89,7 +81,6 @@ app.post("/",(req,res) =>{
                 console.log(err);
             })
         }
-    }
    
 })
 
@@ -99,7 +90,6 @@ app.post("/delete",(req,res)=>{
 
     if(listName === day.getDate()){
         Item.findByIdAndRemove(checkId).then((err)=>{
-            console.log("Removed successfully");
         }).catch((err)=>{
             console.log(err);
         })
@@ -113,16 +103,80 @@ app.post("/delete",(req,res)=>{
     }
 })
 
+app.post("/deleteList",(req,res)=>{
+    const checkId = req.body.checkBox;
+
+   
+        List.findByIdAndRemove(checkId).then((err)=>{
+        }).catch((err)=>{
+            console.log(err);
+        })
+        console.log("findByIdAndRemove");
+        res.redirect('/Home');
+   
+})
+
 app.get("/about", (req,res) =>{
     res.render("about");
 });
+
+// I am working on developing a home page consisting all the list that is created in the database as well as
+// a feature that would allow to add new list( I have to create a new schema consisting of the lists that I have in my database)
+app.get('/Home',(req,res)=> {
+    const customList = _.capitalize(req.params.listName);
+    List.find().then((foundList)=>{
+        if(!foundList){
+            const list = new List({
+                name:customList,
+                items:defaultItems
+            });
+            list.save();
+            res.redirect("/Home");
+        } else {
+            res.render('home', { list: foundList});
+        }
+    }).catch((err) =>{
+        console.log(err);
+    })
+})
+
+app.post("/Home",(req,res) =>{
+    const listName = req.body.newItem;
+    const customListName = req.body.button;
+    console.log(listName);
+
+    List.find().then((foundList)=>{
+        if(foundList.name !== listName){
+            const list = new List({
+                name:listName,
+                items:defaultItems
+            });
+            console.log(listName + " if");
+            list.save();
+            res.redirect("/Home");
+        } else {
+            console.log(listName + " else");
+            res.render('home', { list: foundList});
+        }
+        // if(listName === day.getDate()){
+        //     item.save(); 
+        //     res.redirect("/");
+        // } else {
+        //     List.findOne({name: listName}).then((foundList) => {
+        //         foundList.items.push(item);
+        //         foundList.save();
+        //         res.redirect("/" + listName);
+        //     }). catch((err)=>{
+        //         console.log(err);
+            })
+         //}
+   
+})
 
 
 app.get("/:listName", (req,res)=>{
     const customList = _.capitalize(req.params.listName);
     List.findOne({name:customList}).then((foundList)=>{
-        console.log("exists");
-        console.log(customList);
         if(!foundList){
             const list = new List({
                 name:customList,
@@ -141,16 +195,9 @@ app.get("/:listName", (req,res)=>{
     
 })
 
-app.get("/work", (req,res) =>{
-    res.render("list",{list:"Grocery List", item:workList, req:req});
 
-})
 
-app.post("/work",(req,res) =>{
-    let list = req.body.list;
-    workList.push(list);
-    res.redirect("/work");
-})
+
 
 
 

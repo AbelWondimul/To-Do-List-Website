@@ -5,12 +5,7 @@
     </div>
     
     <div class="box">
-        <%if(req.path === "/work"){%>
-            <h1 style = "color:black">To buy list</h1>
-        <%} else {%>
             <h1 style = "color:black">To do list</h1>
-        <%}%>  
-        
             <% item.forEach((item) => {%>
                 <form action="/delete" method="post">                
                     <div class="item">
@@ -25,15 +20,10 @@
         <input type= "text" name="newItem" placeholder="New Item" autocomplete="off">
         <button type="submit" class="button" name="button" value="<%= list%>">+</button>
         </form>
-    <%if(req.path === "/work"){%>
-        <form class="item" action="/" method="get">
-            <button class="box1" type="submit" >To do List</button>
+        <form class="item center" action="/Home" method="get">
+            <button class="box1" type="submit" >HOME</button>
         </form>
-    <%} else {%>
-       <form class="item" action="/work" method="get">
-            <button class="box1" type="submit" >Grocery List</button>
-        </form>
-    <%}%>
+  
     </div>
 <%- include("footer") -%>
    

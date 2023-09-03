@@ -37,15 +37,16 @@ h1 {
   color: #fff;
   border-radius: 5px;
   height: 50px;
-  width: 200px;
+  width: auto;
   margin:15px;
   background-color: #353535;
   font-size: 20px;
-  display:justify;
+  display: flex;
   text-align: center;
   align-items: center;
   
 }
+
 .item {
   min-height: 70px;
   display: flex;
@@ -90,6 +91,7 @@ form.item {
   font-size: 30px;
   padding-bottom: 6px;
   border-width: 0;
+  cursor: pointer;
   
 }
 button:hover{
@@ -110,6 +112,7 @@ input[type="text"] {
   width: 313px;
 }
 
+
 input[type="text"]:focus {
   outline: none;
   box-shadow: inset 0 -3px 0 0 #A683E3;
@@ -124,4 +127,16 @@ footer {
   color: white;
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
+}
+
+.b2 {
+  color: rgb(24, 24, 109);
+  margin-left: auto;
+  background-color: aqua;
+  border-radius: 10% ;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
 }
