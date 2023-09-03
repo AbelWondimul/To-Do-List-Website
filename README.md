@@ -51,9 +51,6 @@ Feel free to customize the app to suit your needs! You can make changes to the C
 
 Contributions are always welcome! If you find any bugs, have feature requests, or want to improve the app, please open an issue or submit a pull request. Your contributions will help make this project even better.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgments
 
