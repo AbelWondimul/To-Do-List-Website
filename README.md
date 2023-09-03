@@ -12,7 +12,7 @@ Welcome to the To-Do List Website repository! This is a simple web application b
 
 - **Create Tasks:** Add new tasks to your to-do list with ease. Simply type in your task and hit the "Add" button.
 
-- **Mark Completed:** When you've completed a task, you can mark it as done by clicking the checkbox next to the task description.
+- **Mark Completed:** When you've completed a task, you can mark it as done by clicking the checkbox before the task description.
 
   <img src='./img/To-do.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
