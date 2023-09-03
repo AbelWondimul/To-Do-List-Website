@@ -1,5 +1,6 @@
 # To-Do List Website
 
+<img src="./img/Home.png">
 
 <img src="./img/to-dofirst.png">
 
@@ -12,6 +13,8 @@ Welcome to the To-Do List Website repository! This is a simple web application b
 - **Create Tasks:** Add new tasks to your to-do list with ease. Simply type in your task and hit the "Add" button.
 
 - **Mark Completed:** When you've completed a task, you can mark it as done by clicking the checkbox next to the task description.
+
+  <img src='./img/To-do.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Getting Started
 
@@ -50,9 +53,6 @@ Feel free to customize the app to suit your needs! You can make changes to the C
 
 Contributions are always welcome! If you find any bugs, have feature requests, or want to improve the app, please open an issue or submit a pull request. Your contributions will help make this project even better.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgments
 
