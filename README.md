@@ -14,6 +14,8 @@ Welcome to the To-Do List Website repository! This is a simple web application b
 
 - **Mark Completed:** When you've completed a task, you can mark it as done by clicking the checkbox next to the task description.
 
+  <img src='./img/To-do.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 ## Getting Started
 
 To run the To-Do List Website locally on your machine, follow these steps:
