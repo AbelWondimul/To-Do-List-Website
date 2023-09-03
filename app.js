@@ -120,8 +120,6 @@ app.get("/about", (req,res) =>{
     res.render("about");
 });
 
-// I am working on developing a home page consisting all the list that is created in the database as well as
-// a feature that would allow to add new list( I have to create a new schema consisting of the lists that I have in my database)
 app.get('/Home',(req,res)=> {
     const customList = _.capitalize(req.params.listName);
     List.find().then((foundList)=>{
@@ -158,18 +156,8 @@ app.post("/Home",(req,res) =>{
             console.log(listName + " else");
             res.render('home', { list: foundList});
         }
-        // if(listName === day.getDate()){
-        //     item.save(); 
-        //     res.redirect("/");
-        // } else {
-        //     List.findOne({name: listName}).then((foundList) => {
-        //         foundList.items.push(item);
-        //         foundList.save();
-        //         res.redirect("/" + listName);
-        //     }). catch((err)=>{
-        //         console.log(err);
+        
             })
-         //}
    
 })
 
