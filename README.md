@@ -1,5 +1,6 @@
 # To-Do List Website
 
+<img src="./img/Home.png">
 
 <img src="./img/to-dofirst.png">
 
