@@ -11,6 +11,7 @@ app.use(express.static("public"))
 app.set('view engine', 'ejs');
 
 const db_url = process.env.DB_URL;
+const port = process.env.PORT;
 
 mongoose.connect(db_url ,{useNewUrlParser:true});
 
@@ -139,7 +140,7 @@ app.get('/Home',(req,res)=> {
 })
 
 app.post("/Home",(req,res) =>{
-    const listName = req.body.newItem;
+    const listName = _.capitalize(req.body.newItem);
     const customListName = req.body.button;
     console.log(listName);
 
@@ -191,6 +192,6 @@ app.get("/:listName", (req,res)=>{
 
 
 
-app.listen(3000, function(){
-    console.log("server started on port 3000");
+app.listen(port, function(){
+    console.log("server started on port" + port);
 });
